@@ -6,6 +6,16 @@ set -e  # Stop script on error
 CURRENT_DIR=$(pwd)
 
 # Set the necessary variables
+
+# Create and activate a virtual environment
+ENV_DIR="$CURRENT_DIR/venv"
+if [ ! -d "$ENV_DIR" ]; then
+  echo "Creating virtual environment..."
+  python3 -m venv $ENV_DIR
+fi
+
+echo "Activating virtual environment..."
+source $ENV_DIR/bin/activate
 # S3_BUCKET="s3://sagemaker-us-east-1-237682134737/src/"
 
 SOURCE_DIR="$CURRENT_DIR"  # Using the current directory

@@ -25,3 +25,17 @@ def evaluate_model():
     return rmse, r2
 
 evaluate_model()
+
+
+
+import json
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Compute metrics
+rmse = mean_squared_error(y_test, predictions, squared=False)
+r2 = r2_score(y_test, predictions)
+
+# Save metrics to a JSON file
+metrics_data = {"RMSE": rmse, "R2": r2}
+with open("/opt/ml/processing/output/metrics.json", "w") as f:
+    json.dump(metrics_data, f)

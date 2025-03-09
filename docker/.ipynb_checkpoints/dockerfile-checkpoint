@@ -1,0 +1,17 @@
+# Use a base image with Python installed (e.g., an official Python image)
+FROM python:3.9-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the application code to the working directory in the container
+COPY . /app
+
+# Install dependencies
+RUN pip install --upgrade pip
+
+# Install Snowflake connector and any other dependencies
+RUN pip install snowflake-connector-python
+
+# Install other dependencies if necessary (e.g., numpy, pandas)
+# RUN pip install numpy pandas

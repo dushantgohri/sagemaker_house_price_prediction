@@ -1,0 +1,4 @@
+boto
+pandas
+snowflake-connector-python
+scikit-learn
